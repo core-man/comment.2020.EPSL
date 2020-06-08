@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!-- ****************************************************************
+* SOD recipe used to download seismic waveforms
+*
+* History
+*  2019        Jiayuan Yao  Initial coding
+*
+*  If you'd like to use different subsetters in eventArm, networkArm, waveformArm,
+*  please refer to the following websites:
+*  1. http://www.seis.sc.edu/sod/ingredients/index.html
+*  2. https://github.com/seisman/SODrecipes
+*****************************************************************-->
+<sod>
+    <!--   Event Arm   -->
+    <eventArm>
+        <!-- eventSource subsetters -->
+        <!-- I use CSVEventSource, with events in a text file -->
+    	<CSVEventSource>
+            <filename>events.csv</filename>
+        </CSVEventSource>
+
+        <!-- origin subsetters -->
+    	<printlineEventProcess/>
+    </eventArm>
+
+
+    <!--   Network Arm   -->
+    <networkArm>
+        <!-- networkSource subsetters -->
+        <!-- I use fdsnStation, whose default is IRIS-DMC FDSN station web service -->
+        <fdsnStation/>
+
+        <!-- network subsetters -->
+        <!--networkOR>
+            <networkCode>II</networkCode>
+            <networkCode>KN</networkCode>
+        </networkOR-->
+
+        <!-- station subsetters -->
+        <stationOR>
+            <stationCode>AAK</stationCode>
+            <stationCode>ARU</stationCode>
+        </stationOR>
+
+        <!-- channel subsetters -->
+        <channelOR>
+            <channelCode>BHZ</channelCode>
+        </channelOR>
+        <!--sacPoleZeroWriter/-->  <!-- print channel poles and zeros to file -->
+        <!--responseWriter/-->     <!-- print channel responeses to file -->
+    	<printlineChannelProcess/>
+    </networkArm>
+
+
+    <!--   Waveform Arm   -->
+    <waveformArm>
+        <!-- eventStation subsetters -->
+
+        <!-- eventChannel subsetters -->
+        <!--bestChannelAtStation/-->  <!-- pick the best channel at a station -->
+
+        <!-- requestGenerator subsetters -->
+        <phaseRequest> <!-- time window 50 s before and 150 s after frist P -->
+            <model>ak135</model>
+            <beginPhase>PKIKP</beginPhase> <!-- PKIKP -->
+            <beginOffset>
+                <unit>SECOND</unit>
+                <value>-50</value>
+            </beginOffset>
+            <endPhase>PKIKP</endPhase>
+            <endOffset>
+                <unit>SECOND</unit>
+                <value>250</value>
+            </endOffset>
+        </phaseRequest>
+
+        <!-- request subsetters -->
+
+        <!-- seismogramSource subsetters -->
+        <!-- I use fdsnDataSelect, whose default is IRIS-DMC FDSN dataselect web service -->
+        <fdsnDataSelect/>
+
+        <!-- availableData subsetters -->
+        <someCoverage/>
+
+
+        <!-- ****************************************************
+              The following are all seismogramProcess subsetters
+             **************************************************** -->
+        <!-- checks after asking for the seismograms that they really exist. -->
+        <someDataCoverage/>
+
+        <!-- merge, deal with overlap and gap -->
+        <merge/>
+        <collapseOverlaps/>
+        <gapFill>
+            <zeroFill/>
+        </gapFill>
+        <noDataGaps/>
+
+        <!-- basic data processing -->
+        <rMean/>
+        <rTrend/>
+        <taper/>
+
+        <!-- write raw data -->
+        <sacWriter>
+            <workingDir>seismograms-raw</workingDir>
+            <location>${event.getTime("yyyyMMddHHmmssSSS")}/${network.code}.${station.code}.${site.code}.${channel.code}.SAC</location>
+            <!-- Set event depth in km instead of meters -->
+            <sacHeaderScript type="jython">
+                from edu.sc.seis.seisFile.sac import SacConstants
+                h = sac.getHeader()
+                h.evdp = h.evdp/1000
+            </sacHeaderScript>
+        </sacWriter>
+    	<printlineSeismogramProcess/>
+    	<legacyExecute>
+            <command>echo Sod saved this file</command>
+    	</legacyExecute>
+
+
+        <!-- remove response, it should be the same as runing the SAC command:
+             transfer from polezero subtype xyz to none freq 0.005 0.01 20 40 -->
+        <!--transferResponse>
+            <lowCut>0.005</lowCut>
+            <lowPass>0.01</lowPass>
+            <highPass>15</highPass>
+            <highCut>20</highCut>
+        </transferResponse-->
+
+        <!-- write data with response removed -->
+        <!--sacWriter>
+            <workingDir>seismograms-resp-rm</workingDir>
+            <location>${event.getTime("yyyyMMddHHmmssSSS")}/${network.code}.${station.code}.${site.code}.${channel.code}.SAC</location-->
+            <!-- Set event depth in km instead of meters -->
+            <!--sacHeaderScript type="jython">
+                from edu.sc.seis.seisFile.sac import SacConstants
+                h = sac.getHeader()
+                h.evdp = h.evdp/1000
+            </sacHeaderScript>
+        </sacWriter>
+    	<printlineSeismogramProcess/>
+    	<legacyExecute>
+            <command>echo Sod saved this file</command>
+    	</legacyExecute-->
+  	</waveformArm>
+</sod>
