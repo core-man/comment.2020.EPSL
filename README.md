@@ -5,5 +5,5 @@ All the data, materials and sripts used in Yao et al. (2020), i.e., comment on "
 
 - [SSI-D2-199807-201306](SSI-D2-199807-201306/): doublet 9813 in SSI
 
-- [Fig1](Fig/): Figure 1 in Yao et al. (2020)
+- [Fig1](Fig1/): Figure 1 in Yao et al. (2020)
 
