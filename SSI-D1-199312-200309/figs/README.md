@@ -1,8 +1,6 @@
 
 ## Figures
 
-- fig1.ps : Figure 1
-
 - raypath.ps : raypath of PKIKP, PKiKP, and SKP (Fig. 1a)
 
 - dt-AAK.ps : travel time difference due to doublet depth offset at station AAK

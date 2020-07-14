@@ -60,7 +60,7 @@
         <!--bestChannelAtStation/-->  <!-- pick the best channel at a station -->
 
         <!-- requestGenerator subsetters -->
-        <phaseRequest> <!-- time window 50 s before and 150 s after frist P -->
+        <phaseRequest> <!-- time window 50 s before and 250 s after frist PKIKP -->
             <model>ak135</model>
             <beginPhase>PKIKP</beginPhase> <!-- PKIKP -->
             <beginOffset>

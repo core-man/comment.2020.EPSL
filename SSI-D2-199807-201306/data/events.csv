@@ -1,0 +1,3 @@
+time, latitude, longitude, depth, depthUnits, magnitude, magnitudeType
+19980730T23:36:30.640Z,	-58.808, -25.273,   33.0, KILOMETER, 5.1, mb
+20130609T00:21:32.679Z,	-58.809, -25.272,   33.1, KILOMETER, 5.3, mb
