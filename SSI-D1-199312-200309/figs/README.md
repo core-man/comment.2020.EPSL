@@ -9,7 +9,7 @@
 
 - seism-AAK-PKIKP-PKiKP.ps : PKIKP-PKiKP waveforms at station AAK (Fig. 1c)
 
-- seism-AAK-SKP.ps : SKP waveforms at station AAK (Fig. 1e)
+- seism-AAK-SKP.ps : SKP waveforms at station AAK (Fig. 1d)
 
 - seism-ARU-PKIKP-PKiKP.ps : PKIKP-PKiKP waveforms at station ARU (Fig. 1e)
 
