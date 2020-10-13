@@ -1,9 +1,6 @@
-
 Doublet 9303 in SSI.
 
-## [data](data/)
-
-Seismic data downloading and preprocessing
+## [data](data/): Seismic data downloading and preprocessing
 
 ### downloading
 
@@ -22,21 +19,18 @@ We then perform some data preprocessing using [SAC](http://ds.iris.edu/ds/nodes/
 $ perl preprocess.pl
 ```
 
-## [scripts](scripts/)
 
-Scripts used to do calculation
+## [scripts](scripts/): Scripts used to do calculation
 
 ### Forward calculation
 
 - [cal-dt.pl](scripts/cal-dt.pl): calculate traveltime difference due to location difference
-
 
 ### Plotting
 
 - [plot-raypath.pl](scripts/plot-raypath.pl): plot raypaths of PKIKP, PKiKP and SKP (Fig. 1a)
 - [plot-dt.pl](scripts/plot-dt.pl): plot travel time difference due to doublet depth difference (Fig. 1b)
 - [plot-seism.pl](scripts/plot-seism.pl): plot seismograms (Figs. 1c-1f)
-
 
 ### Dependent tools
 
@@ -46,7 +40,7 @@ Scripts used to do calculation
 - [GMT](https://www.generic-mapping-tools.org/) : plot figures
 
 
-## [docs](docs/)
+## [docs](docs/): Calculation results
 
 ### travel time difference
 
@@ -57,7 +51,6 @@ Travel time difference of PKIKP, PKiKP, and SKP due to location difference of do
 - `dt-dd` : travel time difference due to depth offset of doublet 9303
 - `dt-all` : travel time difference due to horizontal and depth separation of doublet 9303
 
-
 ### Raypath
 
 Raypaths of PKIKP, PKiKP, SKP at a distance of 132 degree for a source at 33 km depth
@@ -67,8 +60,7 @@ Raypaths of PKIKP, PKiKP, SKP at a distance of 132 degree for a source at 33 km 
 - `SKP.raypath.gmt`
 
 
-
-## [figs](figs/)
+## [figs](figs/): Figures
 
 - `raypath.ps` : raypath of PKIKP, PKiKP, and SKP (Fig. 1a)
 - `dt-AAK.ps` : travel time difference due to doublet depth offset at station AAK

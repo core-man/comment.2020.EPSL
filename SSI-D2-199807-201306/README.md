@@ -1,9 +1,6 @@
-
 Doublet 9813 in SSI.
 
-## [data](data/)
-
-Seismic data downloading and preprocessing
+## [data](data/): Seismic data downloading and preprocessing
 
 ### downloading
 
@@ -13,7 +10,6 @@ We use [SOD](http://www.seis.sc.edu/sod/) to download seismic data recorded at s
 # run the SOD recipe to download raw data inside seismograms-raw
 $ sod -f recipe.xml
 ```
-
 ### preprocessing
 
 We then perform some data preprocessing using [SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/) based on the script `preprocess.pl`.
@@ -23,20 +19,15 @@ We then perform some data preprocessing using [SAC](http://ds.iris.edu/ds/nodes/
 $ perl preprocess.pl
 ```
 
-
-## [scripts](scripts/)
-
-Scripts used to do calculation
+## [scripts](scripts/): Scripts used to do calculation
 
 ### Forward calculation
 
 - [cal-dt.pl](scripts/cal-dt.pl): calculate traveltime difference due to location difference
 
-
 ### Plotting
 
 - [plot-seism.pl](scripts/plot-seism.pl): plot seismograms (Figs. 1g-1h)
-
 
 ### Dependent tools
 
@@ -46,8 +37,7 @@ Scripts used to do calculation
 - [GMT](https://www.generic-mapping-tools.org/) : plot figures
 
 
-
-## [docs](docs/)
+## [docs](docs/): Calculation results
 
 ### travel time difference
 
@@ -59,9 +49,8 @@ Travel time difference of PKIKP, PKiKP, and SKP due to location difference of do
 - `dt-all` : travel time difference due to horizontal and depth separation of doublet 9813
 
 
+## [figs](figs/): Figures
 
-## [figs](figs/)
-
-- `seism-ARU-PKIKP-PKiKP.ps : PKIKP-PKiKP waveforms at station ARU (Fig. 1g)
-- `seism-ARU-SKP.ps : SKP waveforms at station ARU (Fig. 1h)
+- `seism-ARU-PKIKP-PKiKP.ps` : PKIKP-PKiKP waveforms at station ARU (Fig. 1g)
+- `seism-ARU-SKP.ps` : SKP waveforms at station ARU (Fig. 1h)
 
