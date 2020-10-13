@@ -1,7 +1,6 @@
 
 Seismic data downloading and preprocessing
 
-
 ## downloading
 
 We use [SOD](http://www.seis.sc.edu/sod/) to download seismic data recorded at stations `ARU` and `AAK` of eathquakes in `events.csv` from [IRIS](https://www.iris.edu/hq/) based on the recipe [recipe.xml](recipe.xml)
